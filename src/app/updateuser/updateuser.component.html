@@ -1,0 +1,20 @@
+update user form
+<form [formGroup]="userGroup" (ngSubmit)="update()">
+
+    <div>
+        <label>Name</label>
+        <input type="text" formControlName="uName" value={{user.uName}}>
+    </div>
+    <div>
+        <label>Email</label>
+        <input type="text" formControlName="uEmail" value={{user.uEmail}}>
+    </div>
+    <div>
+        <label>Password</label>
+        <input type="text" formControlName="uPassword" value={{user.uPassword}}>
+        </div>
+    <div>
+        <input type="submit" value="Submit">
+    </div>
+
+</form>

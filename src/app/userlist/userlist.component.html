@@ -1,0 +1,53 @@
+<!-- <table>
+
+    <tr>
+        <th>USER ID</th>
+        <th>USER NAME</th>
+        <th>USER EMAIL</th>
+        <th>USER PASSWORD</th>
+        <th>ACTION</th>
+    </tr>
+    <tr *ngFor="let u of users">
+        <td>{{u.uId}}</td>
+        <td>{{u.uName}}</td>
+        <td>{{u.uEmail}}</td>
+        <td>{{u.uPassword}}</td>
+        <td>
+            <button (click)="delete(u.uId)">DELETE</button>
+            <a [routerLink]="['updateuser',u.uId]">
+                    UPDATE
+            </a>
+        </td>
+    </tr>
+</table> -->
+
+
+<p-table [value]="users" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
+>
+    <ng-template pTemplate="header">
+        
+        <tr>
+            <th pSortableColumn="uId">USER ID <p-sortIcon field="uId"></p-sortIcon></th>
+            <th pSortableColumn="uName">USER Name <p-sortIcon field="uName"></p-sortIcon></th>
+            <th pSortableColumn="uEmail">USER EMAIL <p-sortIcon field="uEmail"></p-sortIcon></th>
+            <th pSortableColumn="birthDate">USER BIRTH DATE <p-sortIcon field="birthDate"></p-sortIcon></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-u>
+        <tr>
+            <td>{{u.uId}}</td>
+            <td>{{u.uName}}</td>
+            <td>{{u.uEmail}}</td>
+            <td>{{u.birthDate}}</td>
+            <td>
+                <button (click)="delete(u.uId)">DELETE</button>
+                <a [routerLink]="['updateuser',u.uId]">
+                        UPDATE
+                </a>
+                <!-- <button class="btn btn-primary" (click) ="getUserDetail(u.uId)"><i class="pi pi-check"></i></button> -->
+                <p-button (click)="getUserDetail(u.uId)" icon="pi pi-eye" iconPos="left"></p-button>
+            </td>
+        </tr>
+    </ng-template>
+    
+</p-table>
